@@ -8,6 +8,6 @@ check("phone","this should be a valid number").isLength({max:10})
 ];
 
 exports.validator=(req,res,next)=>{
-    const errors=validationResult(req);
-    return errors.isEmpty()?next():res.status(400).json({errors:errors.array()});
+    const error=validationResult(req);
+    return error.isEmpty()?next():res.status(400).json({error:error.array()});
 }

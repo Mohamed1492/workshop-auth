@@ -9,7 +9,10 @@ exports.SignUp=async(req,res)=>{
     const {FullName,email,password,phone}=req.body;
     try {
         const exestingUser=await User.findOne({email});
-        if (exestingUser) return res.status(409).json({msg:"Email already exist"})
+        // if (exestingUser){
+        //     // throw new Error("User is allready exist")
+        //     return res.status(409).json({msg:"Email already exist"})
+        // } 
 
         const newUser= User({
             FullName,email,password,phone
